@@ -1,6 +1,6 @@
 # semantic_pdf_search
 
-A small cmd line tool to return a list of papers in a folder that match a specified concept/topic.
+A small cmd line tool to return a list of PDFs in a folder that match a specified concept/topic. The original use-case was filtering a pile of academic papers for ones that match a particular concept or topic.
 
 Example use:
 ```bash
