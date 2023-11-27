@@ -4,7 +4,7 @@ A small cmd line tool to return a list of papers in a folder that match a specif
 
 Example use:
 ```bash
-$ python3 papersearch.py ../my_pdfs "A higher order logic, but just for natural numbers"
+$ python3 semantic_pdf_search.py ../my_pdfs "A higher order logic, but just for natural numbers"
 ../my_pdfs/cyclic-proof-system-for-hfln.pdf
 ```
 
