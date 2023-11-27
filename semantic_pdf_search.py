@@ -1,5 +1,3 @@
-# OPENAI API KEY: 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
-
 import argparse
 import os
 from openai import OpenAI
@@ -62,15 +60,15 @@ if __name__ == "__main__":
     load_dotenv()
 
     parser = argparse.ArgumentParser(
-        prog='PaperSearch',
+        prog='SemanticPDFSearch',
         description=
             'ChatGPT powered PDF semantic search tool \
-            - goes through a folder and performs semantic search based off a prompt string. \
+            - goes through a folder and performs semantic search based off a concept/topic string. \
             Returns a list of file paths to PDFs that match the search string.',
         epilog='(Requires an OpenAI API key)'
     )
-    parser.add_argument('dir', metavar="path")
-    parser.add_argument('-p', '--prompt')
+    parser.add_argument('dir', help="Path to a directory containing '.pdf' files to filter based on the provided concept.")
+    parser.add_argument('concept', help="The concept that the given PDFs need to match.")
     parser.add_argument('-v', '--verbose', action='store_true')
     args = parser.parse_args()
     
@@ -83,11 +81,11 @@ if __name__ == "__main__":
         if VERBOSE:
             print("Provided path is not a directory!")
         exit(1)
-    if len(args.prompt.strip()) == 0:
+    if len(args.concept.strip()) == 0:
         if VERBOSE:
-            print("Prompt string is empty!")
+            print("Concept string is empty!")
         exit(1)
     
-    for pdf in search_folder(args.dir, args.prompt):
+    for pdf in search_folder(args.dir, args.concept):
         print(pdf)
     exit(0)
